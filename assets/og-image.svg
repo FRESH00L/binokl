@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0B474B"/>
+  <g opacity="0.10" stroke="#F0EBE5" stroke-width="1.5" fill="none">
+    <circle cx="1050" cy="150" r="260"/>
+    <circle cx="1120" cy="230" r="180"/>
+  </g>
+  <!-- okulary (motyw binokle) -->
+  <g transform="translate(860 340) scale(1.05)" fill="none" stroke="#F0EBE5" stroke-width="7" stroke-linecap="round">
+    <circle cx="-55" cy="0" r="52"/>
+    <circle cx="55" cy="0" r="52"/>
+    <path d="M-13 -3c7-7 19-7 26 0"/>
+    <path d="M-107 0c-8-18 0-52 24-62"/>
+    <path d="M107 0c8-18 0-52-24-62"/>
+    <circle cx="-55" cy="0" r="19" fill="#F0EBE5" stroke="none"/>
+    <circle cx="55" cy="0" r="19" fill="#F0EBE5" stroke="none"/>
+  </g>
+  <!-- tekst -->
+  <text x="90" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="120" font-weight="600" fill="#F0EBE5" letter-spacing="-3">Binokl</text>
+  <text x="94" y="315" font-family="Arial, sans-serif" font-size="30" letter-spacing="8" fill="rgba(240,235,229,0.75)">SALON OPTYCZNY · PIEKARY ŚLĄSKIE</text>
+  <text x="94" y="415" font-family="Arial, sans-serif" font-size="30" fill="rgba(240,235,229,0.85)">Badanie wzroku · Dobór oprawek · Soczewki · Serwis</text>
+  <text x="94" y="465" font-family="Arial, sans-serif" font-size="30" fill="rgba(240,235,229,0.85)">ul. Wyszyńskiego 5a · tel. 32 767 44 62</text>
+</svg>

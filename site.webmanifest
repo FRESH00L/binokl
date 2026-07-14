@@ -1,0 +1,13 @@
+{
+  "name": "Binokl — Salon Optyczny",
+  "short_name": "Binokl",
+  "description": "Salon optyczny w Piekarach Śląskich od 1995 roku.",
+  "lang": "pl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F0EBE5",
+  "theme_color": "#0B474B",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
