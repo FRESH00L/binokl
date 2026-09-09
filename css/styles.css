@@ -76,10 +76,11 @@
    ========================================================================= */
 
 /* --------------------------------------------------------------------------
-   WARIANT 1 — GRAFIT I MOSIĄDZ   (aktywny)
+   WARIANT 1 — GRAFIT I MOSIĄDZ
    Jasny chłodny loft: grafitowa cegła, beton, mosiądz jako jedyny ciepły akcent.
    -------------------------------------------------------------------------- */
-/* :root {
+/*
+:root {
   --concrete:     #F2EFE9;
   --concrete-rgb: 242, 239, 233;
   --concrete-2:   #DFDBD1;
@@ -128,7 +129,8 @@
   --nav-op-s:   0.96;
   --shadow-rgb: 38, 37, 31;
   --brick-op:   0.6;
-} */
+}
+*/
 
 /* --------------------------------------------------------------------------
    WARIANT 2 — CEGŁA I ORZECH
@@ -310,7 +312,7 @@
 */
 
 /* --------------------------------------------------------------------------
-   WARIANT 5 — MARMUR I WĘGIEL   (motyw ciemno-jasny)
+   WARIANT 5 — MARMUR I WĘGIEL   (motyw ciemno-jasny)   (aktywny)
    Bez koloru: chłodny marmur na sekcjach, węgiel na hero, nagłówkach podstron
    i stopce. Navbar szarawy i mocno półprzezroczysty. Przyciski i kafelki to
    różne odcienie bieli z węglowym tekstem; rama mapy w odcieniach kamienia.
