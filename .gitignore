@@ -1,0 +1,13 @@
+# Foldery zależności
+node_modules/
+vendor/
+tools/
+
+# Pliki środowiskowe i klucze
+.env
+*.key
+
+# Pliki systemowe i tymczasowe
+.DS_Store
+Thumbs.db
+*.log
