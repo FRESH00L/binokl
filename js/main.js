@@ -28,13 +28,6 @@
     if (e.key === "Escape" && navMobile.classList.contains("open")) { closeNav(); navToggle.focus(); }
   });
 
-  /* --- Marquee: duplikacja listy dla bezszwowej pętli (-50%) --- */
-  const marquee = document.getElementById("marquee");
-  if (marquee) {
-    const clone = marquee.innerHTML;
-    marquee.innerHTML = clone + clone;
-  }
-
   /* --- Scroll reveal --- */
   const revealEls = document.querySelectorAll(".reveal");
   if (prefersReduced || !("IntersectionObserver" in window)) {
@@ -54,23 +47,12 @@
     document.querySelectorAll(".fade-in").forEach((el) => el.classList.add("in"));
   }
 
-  /* --- Aktywny link nawigacji wg sekcji --- */
-  const navLinks = Array.from(document.querySelectorAll("#navLinks a"));
-  const sections = navLinks.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
-  if ("IntersectionObserver" in window && sections.length) {
-    const spy = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            navLinks.forEach((l) => l.classList.toggle("active", l.getAttribute("href") === "#" + id));
-          }
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px" }
-    );
-    sections.forEach((s) => spy.observe(s));
-  }
+  /* --- Aktywny link nawigacji wg aktualnej podstrony --- */
+  const here = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("#navLinks a, #navMobile a").forEach((a) => {
+    const target = (a.getAttribute("href") || "").split("#")[0];
+    if (target && target === here) a.classList.add("active");
+  });
 
   /* --- Formularz kontaktowy: statyczny → mailto ---
      (Strona jest statyczna, więc wysyłamy przez klienta pocztowego.

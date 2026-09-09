@@ -37,3 +37,12 @@ Ray-Ban, Gucci, Prada, Oakley, Tom Ford, Persol, Polaroid, Carrera, Hoya, Essilo
 - Ocena: 5,0/5
 - „Świetny optyk, w którym nie tylko znajdziesz ciekawe oprawki, ale dowiesz się bardzo dużo na temat doboru odpowiednich szkieł." — Bartek K.
 - „Najlepszy optyk, do jakiego trafiłam. Pani idealnie dobrała oprawki." — Aleksandra K.
+
+## Struktura strony
+- / (strona główna) — jedno zdjęcie z mottem oraz trzy przejścia: O nas, Badanie wzroku, Kontakt
+- /o-nas.html — historia zakładu, sposób pracy, zasady doboru
+- /badanie-wzroku.html — przebieg wizyty w czterech etapach, regulacja i serwis
+- /oferta.html — okulary korekcyjne, przeciwsłoneczne, soczewki kontaktowe
+- /opinie.html — opinie klientów (ocena 5,0/5)
+- /kontakt.html — dane kontaktowe, godziny, formularz, mapa dojazdu
+- /polityka-prywatnosci.html — zasady przetwarzania danych (RODO)
