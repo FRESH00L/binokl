@@ -500,6 +500,8 @@ p { margin: 0; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 0.9rem; }
 .brand { display: inline-flex; align-items: center; gap: 0.7rem; color: var(--nav-fg); }
 .brand-logo { width: 34px; height: 34px; color: var(--nav-accent); }
+/* logo rastrowe w navbarze — grafika ma własne marginesy, więc jest wyższa niż sygnet SVG */
+img.brand-logo { width: auto; height: 48px; object-fit: contain; }
 .brand-name { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.04em; }
 .brand-sub { display: block; font-family: var(--font-sans); font-size: 0.57rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(var(--nav-fg-rgb), 0.5); margin-top: -0.15rem; }
 
@@ -531,8 +533,10 @@ p { margin: 0; }
 /* =========================================================================
    HERO — jedno zdjęcie i motto
    ========================================================================= */
-.hero { position: relative; display: grid; place-items: center; min-height: min(84svh, 46rem); overflow: hidden; background: var(--graphite); }
+.hero { position: relative; display: grid; place-items: center; min-height: 100svh; overflow: hidden; background: var(--graphite); }
 .hero-img { position: absolute; inset: 0; }
+/* <picture> jest tylko opakowaniem — niech nie psuje wysokosci obrazka */
+.hero-img picture { display: block; position: absolute; inset: 0; }
 .hero-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.85) contrast(1.04) brightness(0.72); }
 .hero-img::after {
   content: ''; position: absolute; inset: 0;
@@ -543,14 +547,31 @@ p { margin: 0; }
 .hero-motto { position: relative; z-index: 1; padding: calc(var(--header-h) + 3rem) var(--pad) 3rem; text-align: center; max-width: 56rem; }
 .hero-motto .m1 {
   display: block; font-family: var(--font-display); font-weight: 700; color: var(--light);
-  font-size: clamp(2.5rem, 6.4vw, 5.6rem); line-height: 0.98; letter-spacing: -0.045em; text-transform: uppercase;
+  font-size: clamp(1.75rem, 4.2vw, 3.6rem); line-height: 1.04; letter-spacing: -0.04em; text-transform: uppercase;
   text-shadow: 0 2px 30px rgba(0,0,0,0.35);
 }
 .hero-motto .m2 {
   display: block; margin-top: 0.5rem; font-family: var(--font-display); font-style: italic; font-weight: 400;
-  font-size: clamp(1.4rem, 3vw, 2.6rem); line-height: 1.15; letter-spacing: -0.015em; color: var(--accent-light);
+  font-size: clamp(1.05rem, 2.1vw, 1.75rem); line-height: 1.2; letter-spacing: -0.015em; color: var(--accent-light);
   text-shadow: 0 2px 24px rgba(0,0,0,0.4);
 }
+/* motto pojawia się z opóźnieniem, linia po linii */
+.hero-motto.fade-in { opacity: 1; }
+.hero-motto .m1, .hero-motto .m2 { opacity: 0; }
+.hero-motto.fade-in.in .m1 { animation: fade-up 1s var(--ease) 0.7s forwards; }
+.hero-motto.fade-in.in .m2 { animation: fade-up 1s var(--ease) 1.5s forwards; }
+
+/* wskaźnik przewijania */
+.hero-scroll {
+  position: absolute; z-index: 1; left: 50%; bottom: 2rem; transform: translateX(-50%);
+  display: grid; justify-items: center; gap: 0.55rem;
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.22em;
+  color: var(--light-70); opacity: 0; animation: fade-in 1s ease 2.3s forwards;
+  transition: color .3s var(--ease);
+}
+.hero-scroll:hover { color: var(--light); }
+.hero-scroll svg { width: 1.1rem; height: 1.1rem; animation: scroll-hint 1.8s ease-in-out infinite; }
+@keyframes scroll-hint { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
 /* =========================================================================
    TRZY DROGI — kafelki bez zdjęć, tylko kolor i nazwa
@@ -571,6 +592,11 @@ p { margin: 0; }
 .pillar--accent:hover { background: var(--tile-2-bg-h); }
 .pillar--stone { background: var(--tile-3-bg); color: var(--tile-3-fg); }
 .pillar--stone:hover { background: var(--tile-3-bg-h); }
+/* kafelki wjeżdżają dopiero, gdy użytkownik przewinie poniżej hero */
+.pillar.reveal { opacity: 0; transform: translateY(28px); }
+.pillar.reveal.in { animation: fade-up 0.7s var(--ease) forwards; }
+.pillar.reveal:nth-child(2).in { animation-delay: 0.12s; }
+.pillar.reveal:nth-child(3).in { animation-delay: 0.24s; }
 
 /* =========================================================================
    BELKA INFORMACYJNA
@@ -613,8 +639,27 @@ p { margin: 0; }
   clip-path: inset(0 -100vmax);
 }
 .alt-row:nth-of-type(even) .alt-media { order: 2; }
-.alt-media { position: relative; align-self: stretch; }
-.alt-media img { display: block; width: 100%; height: 100%; min-height: clamp(19rem, 30vw, 30rem); object-fit: cover; box-shadow: var(--shadow-soft); }
+/* Zdjęcie wypełnia swoją kolumnę w trybie absolutnym, więc to TREŚĆ wyznacza
+   wysokość wiersza — kadr sam dopasowuje się do ilości tekstu w sekcji.
+   min-height chroni przed paskiem przy krótkim akapicie,
+   max-height przed wieżą przy formularzu i długich listach. */
+.alt-media {
+  position: relative; align-self: stretch;
+  min-height: clamp(12rem, 20vw, 17rem);
+  max-height: 30rem;
+}
+.alt-media img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; box-shadow: var(--shadow-soft); }
+/* Zdjęcie zachowuje własne proporcje — nic nie jest przycinane.
+   Wymiary bierze z atrybutów width/height obrazka, więc nie skacze przy
+   wczytywaniu. Kolumna z tekstem dalej wyznacza wysokość wiersza. */
+.alt-media--nat {
+  align-self: center; aspect-ratio: auto;
+  min-height: 0; max-height: none;
+  width: 100%; margin-inline: auto;
+}
+.alt-media--nat img { position: static; width: 100%; height: auto; }
+/* pionowe zdjęcie nie rozpycha wiersza na całą szerokość kolumny */
+.alt-media--pion { max-width: 23rem; }
 .alt-media::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px var(--ink-12); pointer-events: none; }
 .alt-no { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--accent-d); letter-spacing: 0.06em; }
 .alt-body { align-self: center; }
@@ -700,6 +745,82 @@ p { margin: 0; }
 .map-card .name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; }
 .map-card .addr { font-size: 0.87rem; color: var(--ink-70); }
 
+/* =========================================================================
+   GALERIA — karuzela (galeria/karuzela) i siatka (galeria/galeria)
+   Obie sekcje startują z pustym HTML-em i wypełnia je js/gallery.js.
+   ========================================================================= */
+.carousel-section { padding-block: clamp(2.5rem, 5vw, 4.5rem); }
+.carousel-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.25rem; margin-top: 0.9rem; }
+.carousel-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.7rem); font-weight: 700; letter-spacing: -0.035em; }
+.carousel-nav { display: flex; align-items: center; gap: 0.6rem; }
+.carousel-count { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-45); margin-right: 0.4rem; }
+.carousel-btn {
+  display: grid; place-items: center; width: 2.9rem; height: 2.9rem; flex-shrink: 0;
+  background: transparent; color: var(--ink); border: 2px solid var(--ink-12); border-radius: 50%;
+  cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), opacity .3s var(--ease);
+}
+.carousel-btn svg { width: 1.1rem; height: 1.1rem; }
+.carousel-btn:hover:not(:disabled) { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.carousel-btn:disabled { opacity: 0.3; cursor: default; }
+
+/* Jedno zdjęcie naraz. Slajd zajmuje całą szerokość toru, ale zdjęcie NIE jest
+   w niego wciskane: każde ma własne wymiary i proporcje, stoi na środku i jest
+   zmniejszane tylko wtedy, gdy nie mieści się w oknie. Wysokość paska wynika
+   z najwyższego zdjęcia, więc przy przewijaniu nic nie podskakuje. */
+.carousel-track {
+  margin-top: 1.75rem;
+  display: flex; align-items: center;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  /* overflow-y MUSI być jawnie ukryte: samo overflow-x: auto zamienia drugą oś
+     z „visible" na „auto", przez co kółko myszy przewijało wnętrze paska
+     zamiast strony. */
+  overflow-x: auto; overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-track:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.carousel-slide {
+  flex: 0 0 100%;
+  display: grid; place-items: center;
+  padding-block: 0.6rem;
+  scroll-snap-align: center;
+}
+/* Zdjęcie ma swoje własne wymiary — zmniejszamy je tylko wtedy, gdy nie
+   mieści się w oknie. Żadnej wspólnej wysokości ani proporcji dla wszystkich. */
+.carousel-slide img {
+  display: block; width: auto; height: auto;
+  max-width: 100%; max-height: min(60vh, 26rem);
+  box-shadow: var(--shadow-soft);
+}
+
+.carousel-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.4rem; }
+.carousel-dot {
+  width: 0.6rem; height: 0.6rem; padding: 0; flex-shrink: 0;
+  background: var(--ink-12); border: 0; border-radius: 50%; cursor: pointer;
+  transition: background .3s var(--ease), transform .3s var(--ease);
+}
+.carousel-dot:hover { background: var(--ink-45); }
+.carousel-dot.active { background: var(--accent); transform: scale(1.35); }
+
+/* siatka — zwykłe wyświetlenie wszystkich zdjęć */
+.gal-section { padding-block: clamp(2.5rem, 5vw, 4.5rem); background: var(--band); }
+.gal-title { margin-top: 0.9rem; font-size: clamp(1.8rem, 3.2vw, 2.7rem); font-weight: 700; letter-spacing: -0.035em; }
+/* Układ kolumnowy: każde zdjęcie zachowuje własne proporcje, nic nie jest
+   ucięte, a pionowe i poziome kadry układają się obok siebie bez dziur. */
+.gal-grid { margin-top: 1.75rem; columns: 3 17rem; column-gap: clamp(0.75rem, 1.5vw, 1.25rem); }
+.gal-item {
+  position: relative; margin: 0 0 clamp(0.75rem, 1.5vw, 1.25rem);
+  break-inside: avoid;
+}
+/* Każde zdjęcie w swoich proporcjach — bez wspólnego kadru i bez przycinania.
+   Powiększanie pod kursorem zniknęło, bo w ramce z ukrytym nadmiarem
+   obcinało brzegi zdjęcia. */
+.gal-item img { width: 100%; height: auto; display: block; }
+.gal-item::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px var(--ink-12); pointer-events: none; }
+
+.gal-empty { padding-block: clamp(3rem, 6vw, 5rem); text-align: center; color: var(--ink-70); }
+
 /* ---------- PAS CTA ---------- */
 .cta-band { position: relative; overflow: hidden; padding-block: clamp(2.75rem, 5vw, 4.5rem); color: var(--light); }
 .cta-band .wrap { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
@@ -752,7 +873,9 @@ p { margin: 0; }
 @media (max-width: 1024px) {
   .alt-row { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
   .alt-row:nth-of-type(even) .alt-media { order: 0; }
-  .alt-media img { height: clamp(15rem, 52vw, 24rem); min-height: 0; }
+  .alt-media { min-height: clamp(13rem, 44vw, 20rem); max-height: 24rem; }
+  .alt-media--nat { min-height: 0; max-height: none; }
+  .alt-media--pion { max-width: 20rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
@@ -773,7 +896,9 @@ p { margin: 0; }
 
 @media (max-width: 560px) {
   body { font-size: 1rem; }
-  .hero { min-height: min(76svh, 34rem); }
+  .carousel-slide img { max-height: min(46vh, 17rem); }
+  .carousel-head { align-items: flex-start; }
+
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2.25rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
@@ -795,7 +920,9 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
-  .reveal, .fade-in { opacity: 1 !important; transform: none !important; }
+  .reveal, .fade-in, .hero-motto .m1, .hero-motto .m2, .hero-scroll { opacity: 1 !important; transform: none !important; }
+  .gal-item:hover img { transform: none; }
+  .hero-scroll { transform: translateX(-50%) !important; }
 }
 
 /* ---------- DRUK ---------- */

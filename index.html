@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Binokl — Salon Optyczny Piekary Śląskie | Badanie wzroku</title>
-  <meta name="description" content="Salon optyczny w Piekarach Śląskich. Komputerowe badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne oraz soczewki kontaktowe." />
+  <meta name="description" content="Salon optyczny w Piekarach Śląskich. Badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne oraz soczewki kontaktowe." />
   <meta name="author" content="Binokl — Salon Optyczny" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="geo.region" content="PL-24" />
@@ -17,7 +17,7 @@
   <meta property="og:site_name" content="Binokl — Salon Optyczny" />
   <meta property="og:locale" content="pl_PL" />
   <meta property="og:title" content="Binokl — Salon Optyczny Piekary Śląskie | Badanie wzroku" />
-  <meta property="og:description" content="Salon optyczny w Piekarach Śląskich. Komputerowe badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne oraz soczewki kontaktowe." />
+  <meta property="og:description" content="Salon optyczny w Piekarach Śląskich. Badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne oraz soczewki kontaktowe." />
   <meta property="og:url" content="https://www.binokl.com.pl/" />
   <meta property="og:image" content="https://www.binokl.com.pl/assets/img/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -29,7 +29,9 @@
 
   <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/hanken-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" as="image" href="assets/img/ph-hero.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/img/hero-salon-1800.webp" type="image/webp"
+        imagesrcset="assets/img/hero-salon-1100.webp 1100w, assets/img/hero-salon-1800.webp 1800w"
+        imagesizes="100vw" fetchpriority="high" />
   <link rel="stylesheet" href="css/styles.css" />
 
   <script type="application/ld+json">
@@ -39,7 +41,7 @@
     "@id": "https://www.binokl.com.pl/#organization",
     "name": "Binokl — Salon Optyczny",
     "legalName": "Binokl. Zakład optyczny. Mamys-Wróbel K.",
-    "description": "Salon optyczny w Piekarach Śląskich. Komputerowe badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne, soczewki kontaktowe oraz serwis okularów.",
+    "description": "Salon optyczny w Piekarach Śląskich. Badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne, soczewki kontaktowe oraz serwis okularów.",
     "url": "https://www.binokl.com.pl/",
     "logo": "https://www.binokl.com.pl/assets/favicon.svg",
     "image": "https://www.binokl.com.pl/assets/img/og-image.jpg",
@@ -72,7 +74,7 @@
       "@type": "OfferCatalog",
       "name": "Usługi optyczne",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Komputerowe badanie wzroku" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Badanie wzroku" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Profesjonalny dobór oprawek" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Okulary korekcyjne" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Okulary przeciwsłoneczne" } },
@@ -94,18 +96,17 @@
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="index.html" aria-label="Binokl — strona główna">
-        <svg class="brand-logo" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
-          <circle cx="13" cy="27" r="9"/><circle cx="35" cy="27" r="9"/><path d="M22 25.5c1.2-1.2 2.8-1.2 4 0"/><path d="M4 27c-1.2-3 0-9 4-10.5"/><path d="M44 27c1.2-3 0-9-4-10.5"/><circle cx="13" cy="27" r="3.4" fill="currentColor" stroke="none"/><circle cx="35" cy="27" r="3.4" fill="currentColor" stroke="none"/>
-        </svg>
+        <img class="brand-logo" src="assets/img/logo.png" alt="" width="632" height="395" />
         <span><span class="brand-name">Binokl</span><span class="brand-sub">Zakład optyczny</span></span>
       </a>
 
       <nav aria-label="Nawigacja główna">
         <ul class="nav-links" id="navLinks">
           <li><a href="o-nas.html">O nas</a></li>
-          <li><a href="badanie-wzroku.html">Badanie wzroku</a></li>
+          <li><a href="badanie-wzroku.html">Usługi</a></li>
           <li><a href="oferta.html">Oferta</a></li>
           <li><a href="opinie.html">Opinie</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </nav>
@@ -122,9 +123,10 @@
     <div class="nav-mobile" id="navMobile">
       <ul>
         <li><a href="o-nas.html">O nas</a></li>
-        <li><a href="badanie-wzroku.html">Badanie wzroku</a></li>
+        <li><a href="badanie-wzroku.html">Usługi</a></li>
         <li><a href="oferta.html">Oferta</a></li>
         <li><a href="opinie.html">Opinie</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
         <li class="cta"><a class="btn btn-accent" href="kontakt.html">Zarezerwuj wizytę</a></li>
       </ul>
@@ -135,24 +137,33 @@
 
     <section class="hero">
       <div class="hero-img">
-        <img src="assets/img/ph-hero.jpg" alt="Ekspozycja oprawek okularowych w salonie optycznym Binokl" width="2000" height="1125" fetchpriority="high" />
+        <picture>
+          <source type="image/webp" media="(max-width: 700px)" srcset="assets/img/hero-salon-1100.webp" />
+          <source type="image/webp" srcset="assets/img/hero-salon-1800.webp" />
+          <source media="(max-width: 700px)" srcset="assets/img/hero-salon-1100.jpg" />
+          <img src="assets/img/hero-salon-1800.jpg" alt="Ekspozycja oprawek okularowych na ceglanej ścianie w salonie optycznym Binokl" width="1800" height="1125" fetchpriority="high" decoding="async" />
+        </picture>
       </div>
       <h1 class="hero-motto fade-in">
-        <span class="m1">Zobacz ostro</span>
-        <span class="m2">w pełnych barwach</span>
+        <span class="m1">Wyraźna wizja przez piękne okulary to nie przywilej,</span>
+        <span class="m2">lecz standard, który od ponad 30 lat jest moją misją.</span>
       </h1>
+      <a class="hero-scroll" href="#dzialy" aria-label="Przewiń w dół">
+        <span>Przewiń</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </a>
     </section>
 
-    <nav class="pillars" aria-label="Główne działy">
-      <a class="pillar pillar--graphite" href="o-nas.html">
+    <nav class="pillars" id="dzialy" aria-label="Główne działy">
+      <a class="pillar pillar--graphite reveal" href="o-nas.html">
         <h2>O nas</h2>
         <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-      <a class="pillar pillar--accent" href="badanie-wzroku.html">
+      <a class="pillar pillar--accent reveal" href="badanie-wzroku.html">
         <h2>Badanie wzroku</h2>
         <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-      <a class="pillar pillar--stone" href="kontakt.html">
+      <a class="pillar pillar--stone reveal" href="kontakt.html">
         <h2>Kontakt</h2>
         <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
@@ -196,15 +207,16 @@
         </svg>
             <span><span class="brand-name">Binokl</span><span class="brand-sub">Zakład optyczny</span></span>
           </a>
-          <p class="footer-about">Kameralny salon optyczny w Piekarach Śląskich. Komputerowe badanie wzroku i indywidualny dobór oprawek — od 30 lat w tym samym miejscu.</p>
+          <p class="footer-about">Kameralny salon optyczny w Piekarach Śląskich. Badanie wzroku i indywidualny dobór oprawek — od 30 lat w tym samym miejscu.</p>
         </div>
         <nav>
           <h4>Nawigacja</h4>
           <ul>
             <li><a href="o-nas.html">O nas</a></li>
-            <li><a href="badanie-wzroku.html">Badanie wzroku</a></li>
+            <li><a href="badanie-wzroku.html">Usługi</a></li>
             <li><a href="oferta.html">Oferta</a></li>
             <li><a href="opinie.html">Opinie</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </nav>
