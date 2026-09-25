@@ -1,244 +1,579 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="no-js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optyk Binokl — Piekary Śląskie · od 1993</title>
+<meta name="description" content="Optyk Binokl w Piekarach Śląskich. Dyplomowany optyk Katarzyna Mamys-Wróbel od 1993 roku. Badanie wzroku, dobór oprawek, okulary, soczewki.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="canonical" href="https://www.binokl.com.pl/">
+<meta name="theme-color" content="#F4EBD9">
+<meta name="author" content="Binokl — Zakład optyczny, Katarzyna Mamys-Wróbel">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:site_name" content="Binokl — Salon optyczny">
+<meta property="og:title" content="Optyk Binokl — Piekary Śląskie · od 1993">
+<meta property="og:description" content="Optyk Binokl w Piekarach Śląskich. Dyplomowany optyk Katarzyna Mamys-Wróbel od 1993 roku. Badanie wzroku, dobór oprawek, okulary, soczewki.">
+<meta property="og:url" content="https://www.binokl.com.pl/">
+<meta property="og:image" content="https://www.binokl.com.pl/assets/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* KONCEPCJA 5 — WERSJA KLIENTKI
+   Tła sekcji i kolor tekstu z koncepcji 01 (pergamin + brąz), pod spodem
+   rozmyte zdjęcie ściany z oprawkami. Dodatki (ramki, przyciski, linie)
+   w zieleni z koncepcji 03. Jeden krój i jeden kolor tekstu: Playfair Display. */
+:root{
+  --paper:#F4EBD9; --paper-2:#EBDFC6; --paper-3:#E2D3B3;
+  --ink:#3A2A1E;                      /* jedyny kolor tekstu */
+  --green:#0B474B; --green-d:#073336; /* ramki, przyciski, akcenty */
+  --font:'Playfair Display',Georgia,serif;
+  --r:16px; --w:1180px;
+}
+:root{
+  --barbg:var(--paper); --baracc:var(--green);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden;font-family:var(--font);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.65}
+body::before{content:"";position:fixed;inset:-40px;z-index:-1;background:url('assets/img/image3.jpeg') center/cover no-repeat;filter:blur(14px) saturate(.9)}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 clamp(1rem,4vw,3rem)}
 
-  <title>Binokl — Salon Optyczny Piekary Śląskie | Badanie wzroku</title>
-  <meta name="description" content="Salon optyczny w Piekarach Śląskich. Badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne oraz soczewki kontaktowe." />
-  <meta name="author" content="Binokl — Salon Optyczny" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <meta name="geo.region" content="PL-24" />
-  <meta name="geo.placename" content="Piekary Śląskie" />
-  <meta name="theme-color" content="#33322E" />
-  <link rel="canonical" href="https://www.binokl.com.pl/" />
+/* ornamenty */
+.rule{display:flex;align-items:center;gap:.8rem;color:var(--green);justify-content:center;margin:1rem 0}
+.rule::before,.rule::after{content:"";flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--green))}
+.rule::after{background:linear-gradient(90deg,var(--green),transparent)}
+.rule svg{width:22px;height:22px}
+.eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:.72rem}
+h1,h2,h3{font-weight:600;line-height:1.15}
+h2{font-size:clamp(2rem,4vw,3rem)}
+.center{text-align:center}
+.frame{border:1px solid var(--green);border-radius:var(--r);box-shadow:0 0 0 5px rgba(244,235,217,.9),0 0 0 6px var(--green);padding:2.4rem;background:rgba(255,255,255,.3)}
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Binokl — Salon Optyczny" />
-  <meta property="og:locale" content="pl_PL" />
-  <meta property="og:title" content="Binokl — Salon Optyczny Piekary Śląskie | Badanie wzroku" />
-  <meta property="og:description" content="Salon optyczny w Piekarach Śląskich. Badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne oraz soczewki kontaktowe." />
-  <meta property="og:url" content="https://www.binokl.com.pl/" />
-  <meta property="og:image" content="https://www.binokl.com.pl/assets/img/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://www.binokl.com.pl/assets/img/og-image.jpg" />
+/* zdjęcia — zielona ramka, zaokrąglone rogi */
+.ph{border:6px solid var(--green);border-radius:var(--r);overflow:hidden;box-shadow:0 18px 40px -20px rgba(42,30,21,.55)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.ph:hover img,.news-item:hover .ph img{transform:scale(1.06)}
 
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="assets/favicon.svg" />
-  <link rel="manifest" href="site.webmanifest" />
+/* nav — zawsze ten sam kolor */
+.nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--green)}
+.nav-in{display:flex;align-items:center;gap:1.5rem;height:78px;max-width:1360px}
+.nav-in .links{flex:1;justify-content:center}
+.nav-in .nav-act{margin-left:auto}
+.brand{display:flex;align-items:center;gap:.9rem;text-decoration:none}
+.brand img{height:54px;width:auto;transition:transform .3s ease}
+.brand:hover img{transform:scale(1.08)}
+.brand span{white-space:nowrap;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:1.1rem}
+.links{display:flex;gap:clamp(.9rem,1.4vw,1.6rem);list-style:none;white-space:nowrap}
+.links a{text-decoration:none;font-size:.95rem;position:relative;padding:.3rem 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--green);transform:scaleX(0);transition:.3s}
+.links a:hover::after{transform:scaleX(1)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;text-decoration:none;font-family:var(--font);font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--green);border-radius:999px;color:var(--ink);transition:.25s;background:transparent;cursor:pointer}
+.btn:hover{background:var(--green);color:var(--paper)}
+.btn.solid{background:var(--green);color:var(--paper)}
+.btn.solid:hover{background:var(--green-d);border-color:var(--green-d)}
+.fb{flex-shrink:0;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--green);color:var(--green);transition:background .25s,color .25s}
+.fb:hover{background:var(--green);color:var(--paper)}
+.fb svg{width:18px;height:18px}
+.nav-act{display:flex;align-items:center;gap:.7rem;flex-shrink:0}
+.nav .btn{padding:.6rem 1.15rem;font-size:.8rem;letter-spacing:.08em}
+.burger{display:none;background:none;border:1px solid var(--green);border-radius:999px;padding:.5rem .9rem;font-family:var(--font);color:var(--ink);letter-spacing:.1em;cursor:pointer}
+.mobile{display:none;border-top:1px solid var(--green)}
+.mobile.open{display:block}
+.mobile ul{list-style:none;padding:1rem clamp(1rem,4vw,3rem)}
+.mobile a{display:block;padding:.7rem 0;text-decoration:none;border-bottom:1px dashed rgba(11,71,75,.4)}
+@media(max-width:1240px){.brand span{display:none}}
+@media(max-width:1100px){.links,.nav .btn{display:none}.burger{display:block}.brand span{display:inline}}
+@media(max-width:480px){.nav-in{height:68px}.brand{gap:.6rem}.brand img{height:42px}.brand span{font-size:.95rem;letter-spacing:.08em}.nav-act{gap:.5rem}}
 
-  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/hanken-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" as="image" href="assets/img/hero-salon-1800.webp" type="image/webp"
-        imagesrcset="assets/img/hero-salon-1100.webp 1100w, assets/img/hero-salon-1800.webp 1800w"
-        imagesizes="100vw" fetchpriority="high" />
-  <link rel="stylesheet" href="css/styles.css" />
+/* sekcje — tło jak w 01, półprzezroczyste nad rozmytym zdjęciem */
+section{padding:clamp(4rem,8vw,7rem) 0;background:rgba(244,235,217,.86)}
+section.alt{background:rgba(235,223,198,.88);border-top:1px solid rgba(11,71,75,.3);border-bottom:1px solid rgba(11,71,75,.3)}
+.lead{max-width:640px;margin:0 auto}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Optician",
-    "@id": "https://www.binokl.com.pl/#organization",
-    "name": "Binokl — Salon Optyczny",
-    "legalName": "Binokl. Zakład optyczny. Mamys-Wróbel K.",
-    "description": "Salon optyczny w Piekarach Śląskich. Badanie wzroku, indywidualny dobór oprawek, okulary korekcyjne i przeciwsłoneczne, soczewki kontaktowe oraz serwis okularów.",
-    "url": "https://www.binokl.com.pl/",
-    "logo": "https://www.binokl.com.pl/assets/favicon.svg",
-    "image": "https://www.binokl.com.pl/assets/img/og-image.jpg",
-    "telephone": "+48327674462",
-    "email": "optyk@binokl.com.pl",
-    "priceRange": "$$",
-    "currenciesAccepted": "PLN",
-    "paymentAccepted": "Gotówka, Karta płatnicza",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Wyszyńskiego 5a",
-      "addressLocality": "Piekary Śląskie",
-      "postalCode": "41-940",
-      "addressRegion": "śląskie",
-      "addressCountry": "PL"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 50.38, "longitude": 18.95 },
-    "hasMap": "https://maps.google.com/?q=Wyszy%C5%84skiego+5a+Piekary+%C5%9Al%C4%85skie",
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "17:00" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "13:00" }
-    ],
-    "areaServed": [
-      { "@type": "City", "name": "Piekary Śląskie" },
-      { "@type": "City", "name": "Bytom" },
-      { "@type": "City", "name": "Radzionków" },
-      { "@type": "City", "name": "Tarnowskie Góry" }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Usługi optyczne",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Badanie wzroku" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Profesjonalny dobór oprawek" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Okulary korekcyjne" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Okulary przeciwsłoneczne" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soczewki kontaktowe" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Serwis i naprawa okularów" } }
-      ]
-    },
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "3", "bestRating": "5", "worstRating": "1" }
-  }
-  </script>
-  <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "WebSite", "name": "Binokl — Salon Optyczny", "url": "https://www.binokl.com.pl/", "inLanguage": "pl-PL", "publisher": { "@id": "https://www.binokl.com.pl/#organization" } }
-  </script>
+/* hero */
+.hero{position:relative;min-height:clamp(520px,calc(100svh - 78px),820px);display:grid;place-items:center;overflow:hidden;isolation:isolate;padding:0;background:none; height: 100vh;}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 150%;z-index:-2;-webkit-mask-image:linear-gradient(180deg,#000 65%,transparent 100%);mask-image:linear-gradient(180deg,#000 65%,transparent 100%)}
+/* dół hero kończy się tym samym kolorem co tło sekcji niżej — bez widocznej krawędzi */
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(42,30,21,.35),rgba(42,30,21,.5) 55%,rgba(244,235,217,.86) 100%)}
+.hero-card{width:min(760px,calc(100% - 2rem));min-width:0;margin:clamp(1.5rem,5vh,3rem) 1rem clamp(3rem,9vh,5rem);background:var(--paper);border-radius:22px;padding:clamp(1.4rem,5vw,3.5rem);text-align:center;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);position:relative}
+.hero-card::before{content:"";position:absolute;inset:10px;border:1px solid var(--green);border-radius:15px;pointer-events:none}
+.hero-card::after{content:"";position:absolute;inset:14px;border:1px solid rgba(11,71,75,.45);border-radius:12px;pointer-events:none}
+.hero-card .year{letter-spacing:.35em;font-size:.8rem;text-transform:uppercase}
+.hero-card h1{font-size:clamp(1.9rem,6vw,4.4rem);font-weight:700;letter-spacing:.02em;text-transform:uppercase;line-height:1;margin:.6rem 0 1rem}
+.hero-card h1 span{display:block;font-size:.42em;letter-spacing:.25em;font-weight:400;margin-top:.6rem}
+.hero-card p.motto{font-size:1.25rem;max-width:520px;margin:0 auto 1.6rem}
+.hero-card .actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.hero-card .persons{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;padding-top:1.4rem;border-top:1px solid rgba(11,71,75,.45);font-size:.95rem}
+.hero-card .persons b{display:block;font-weight:600}
+.hero-card .persons small{letter-spacing:.15em;text-transform:uppercase;font-size:.65rem}
+
+/* o nas */
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.photo-vintage{padding:12px;background:var(--green);border-radius:20px;box-shadow:0 20px 50px -20px rgba(42,30,21,.5);transform:rotate(-1.5deg)}
+.photo-vintage .pic{border-radius:10px;overflow:hidden}
+.photo-vintage img{filter:sepia(.2) contrast(1.05);aspect-ratio:4/5;object-fit:cover;width:100%;transition:transform .6s ease}
+.photo-vintage:hover img{transform:scale(1.06)}
+.photo-vintage figcaption{text-align:center;padding:.8rem .5rem .2rem;color:var(--paper);font-size:.95rem}
+.about p{margin-bottom:1rem}
+.about .label{display:inline-flex;align-items:center;gap:.7rem;font-size:1.05rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;margin-bottom:.8rem}
+.about .label::before{content:"";width:42px;height:2px;background:var(--green)}
+.about h2{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:700;line-height:1.08}
+.stamps{display:flex;gap:1.5rem;margin-top:1.8rem;flex-wrap:wrap}
+.stamp{width:110px;height:110px;border-radius:50%;border:1px solid var(--green);display:grid;place-items:center;text-align:center;position:relative}
+.stamp::before{content:"";position:absolute;inset:5px;border:1px dashed var(--green);border-radius:50%}
+.stamp b{font-size:1.7rem;line-height:1;display:block}
+.stamp small{display:block;padding:0 .7rem;font-size:.55rem;letter-spacing:.12em;line-height:1.3;text-transform:uppercase}
+
+/* usługi */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:3rem}
+.card{background:var(--paper);padding:2.2rem 1.8rem;border:1px solid var(--green);border-radius:var(--r);position:relative;text-align:center}
+.card::before{content:"";position:absolute;inset:6px;border:1px solid rgba(11,71,75,.3);border-radius:11px;pointer-events:none}
+.card .no{font-size:1.2rem;font-weight:700}
+.card h3{font-size:1.35rem;margin:.5rem 0 .8rem}
+.card p{font-size:1rem}
+
+/* doktor */
+.doctor{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:stretch}
+.doctor .ph{position:relative;min-height:320px}
+.doctor .ph img{position:absolute;inset:0;filter:sepia(.15)}
+.doctor .frame h3{font-size:1.8rem;margin:.6rem 0}
+.doctor .frame p{margin-bottom:.8rem}
+
+/* essilor — rozmyte zdjęcie w tle */
+.essilor{position:relative;overflow:hidden;isolation:isolate;background:none}
+.essilor .bg{position:absolute;inset:-30px;z-index:-2;background:url('assets/img/ph-opinia2.jpg') center/cover no-repeat;filter:blur(8px)}
+.essilor::after{content:"";position:absolute;inset:0;z-index:-1;background:rgba(42,30,21,.25)}
+.essilor .box{max-width:760px;margin:0 auto;text-align:center;background:rgba(244,235,217,.93);border-radius:22px;border:1px solid var(--green);box-shadow:0 0 0 6px rgba(244,235,217,.6),0 0 0 7px var(--green),0 30px 70px -30px rgba(0,0,0,.6);padding:clamp(1.8rem,5vw,3.2rem)}
+.essilor .box p{font-size:1.15rem;margin-top:.6rem}
+.essilor a.brandlink{color:var(--green);font-weight:700;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.essilor a.brandlink:hover{color:var(--green-d);text-decoration-thickness:2px}
+
+/* aktualności */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:3rem}
+.news-item{background:var(--paper);border:1px solid var(--green);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.news-item .ph{margin:10px 10px 0;border-width:4px}
+.news-item .ph img{aspect-ratio:4/3}
+.news-item .txt{padding:1.3rem 1.5rem 1.6rem}
+.news-item time{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+.news-item h3{font-size:1.3rem;margin:.4rem 0 .6rem}
+.news-item p{font-size:.98rem}
+
+/* opinie */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:3rem}
+.quote{padding:2rem;background:rgba(255,255,255,.4);border:1px solid var(--green);border-radius:var(--r);position:relative}
+.quote::before{content:"„";font-size:5rem;line-height:.5;color:var(--green);position:absolute;top:1.6rem;left:1.4rem;opacity:.5}
+.quote p{margin-top:1.4rem}
+.quote b{display:block;margin-top:1rem;font-weight:600}
+.quote .stars{color:var(--green);letter-spacing:.15em;font-size:.9rem}
+
+/* galeria */
+.gal{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:.9rem;margin-top:3rem}
+.gal button{padding:0;background:none;border:6px solid var(--green);border-radius:var(--r);overflow:hidden;cursor:zoom-in;box-shadow:0 10px 30px -14px rgba(42,30,21,.6)}
+.gal img{width:100%;height:100%;object-fit:cover;filter:sepia(.12);transition:transform .6s}
+.gal button:hover img{transform:scale(1.06)}
+.gal .tall{grid-row:span 2}.gal .wide{grid-column:span 2}
+
+/* lightbox */
+.lb{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
+.lb::backdrop{background:rgba(20,14,10,.92)}
+.lb[open]{display:grid;place-items:center}
+.lb img{transition:opacity .25s ease;max-width:92vw;max-height:86vh;width:auto;height:auto;border:6px solid var(--green);border-radius:var(--r);box-shadow:0 30px 80px -20px #000}
+.lb button{position:fixed;width:52px;height:52px;border-radius:50%;border:0;background:var(--green);color:var(--paper);font-family:var(--font);font-size:1.6rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.lb button:hover{background:var(--green-d)}
+.lb .close{top:1rem;right:1rem}
+.lb .prev{left:1rem;top:50%;transform:translateY(-50%)}
+.lb .next{right:1rem;top:50%;transform:translateY(-50%)}
+
+/* faq */
+.faq{max-width:820px;margin:2.6rem auto 0}
+.faq details{border-bottom:1px solid var(--green)}
+.faq summary{list-style:none;cursor:pointer;padding:1.15rem 2.6rem 1.15rem 0;font-weight:600;font-size:1.1rem;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:.2rem;top:50%;transform:translateY(-50%);font-size:1.6rem;line-height:1;color:var(--green)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 1.25rem;max-width:70ch}
+
+/* kontakt */
+.islands{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
+.island{background:var(--paper);border:1px solid var(--green);border-radius:var(--r);padding:1.6rem 1.4rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.4rem}
+.island .ico{width:48px;height:48px;border-radius:50%;background:var(--green);color:var(--paper);display:grid;place-items:center;margin-bottom:.4rem}
+.island .ico svg{width:22px;height:22px}
+.island h3{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+.island a{text-decoration:none}
+.island .big{font-size:1.05rem;font-weight:600;overflow-wrap:anywhere}
+.island .more{margin-top:auto;padding-top:.6rem;font-size:.9rem;text-decoration:underline;text-decoration-color:var(--green);text-underline-offset:4px}
+.island .hrs{font-size:.95rem;line-height:1.7}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin-top:1.6rem;align-items:stretch}
+.contact .ph img{aspect-ratio:847/435}
+.map{min-height:300px}
+.map iframe{display:block;width:100%;height:100%;min-height:300px;border:0;filter:sepia(.35) contrast(.95)}
+
+footer{background:var(--paper-3);border-top:2px solid var(--green);padding:3rem 0;text-align:center;font-size:.9rem}
+footer img{height:70px;margin:0 auto 1rem}
+footer .name{letter-spacing:.2em;text-transform:uppercase}
+
+/* popup promocji */
+.promo{position:fixed;right:1.2rem;bottom:1.2rem;z-index:90;width:min(340px,calc(100vw - 2.4rem));background:var(--paper);border:2px solid var(--green);border-radius:18px;padding:1.4rem 1.4rem 1.3rem;box-shadow:0 24px 60px -20px rgba(0,0,0,.55);transform:translateY(20px);opacity:0;transition:.5s ease}
+.promo.show{transform:none;opacity:1}
+.promo[hidden]{display:none}
+.promo .eyebrow{display:block;margin-bottom:.4rem}
+.promo p{font-size:1.05rem;padding-right:1rem}
+.promo .x{position:absolute;top:.6rem;right:.6rem;width:32px;height:32px;border-radius:50%;border:0;background:var(--green);color:var(--paper);font-size:1.1rem;line-height:1;cursor:pointer}
+.promo .x:hover{background:var(--green-d)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:.8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){
+  .about,.doctor,.contact-grid{grid-template-columns:1fr}
+  .islands{grid-template-columns:1fr 1fr}
+  .quotes,.news{grid-template-columns:1fr}
+  .cards{grid-template-columns:repeat(3,1fr);gap:1rem}
+  .card{padding:1.8rem 1.2rem}
+  .gal{grid-template-columns:repeat(3,1fr);grid-auto-rows:170px}
+  .news-item{flex-direction:row;align-items:center}
+  .news-item .ph{flex:0 0 42%;margin:10px}
+  .doctor .frame{padding:1.8rem}
+  .doctor .ph{min-height:0;aspect-ratio:4/3}
+  .hero-card .persons{flex-direction:column}
+  .photo-vintage{max-width:380px;margin:0 auto}
+  .lb .prev,.lb .next{top:auto;bottom:1rem;transform:none}
+}
+@media(max-width:700px){
+  .cards{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  .news-item{flex-direction:column;align-items:stretch}
+  .news-item .ph{flex:none;margin:10px 10px 0}
+}
+@media(max-width:560px){
+  .islands{grid-template-columns:1fr}
+  .stamps{gap:.7rem;justify-content:space-between}
+  .stamp{width:clamp(86px,27vw,104px);height:clamp(86px,27vw,104px)}
+  .stamp b{font-size:1.4rem}
+  .stamp small{font-size:.5rem;letter-spacing:.08em}
+  .frame{padding:1.5rem}
+  .hero-card p.motto{font-size:1.1rem}
+  .quote{padding:1.6rem}
+}
+
+/* dostępność */
+.skip{position:absolute;left:-9999px;top:0;z-index:999;background:var(--green);color:var(--paper);padding:.8rem 1.2rem;text-decoration:none;font-weight:600}
+.skip:focus{left:.5rem;top:.5rem}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--baracc);outline-offset:3px;border-radius:3px}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .reveal{opacity:1 !important;transform:none !important}
+}
+.no-js .reveal{opacity:1;transform:none}
+/* kafelki tekstowe lekko rosną, kafelki ze zdjęciem — przybliża się samo zdjęcie */
+.lift{transition:opacity .8s ease,transform .8s ease,scale .35s ease,box-shadow .35s ease}
+.lift:hover{scale:1.03;box-shadow:0 18px 40px -22px rgba(42,30,21,.5)}
+/* pasek kontaktowy na telefonie */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;background:var(--paper);border-top:2px solid var(--green)}
+.callbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:.15rem;padding:.6rem .4rem calc(.6rem + env(safe-area-inset-bottom));text-decoration:none;font-size:.75rem;font-weight:600}
+.callbar a+a{border-left:1px solid rgba(11,71,75,.3)}
+.callbar svg{width:20px;height:20px;color:var(--green)}
+@media(max-width:760px){.callbar{display:flex}body{padding-bottom:64px}.promo{bottom:calc(76px + env(safe-area-inset-bottom))}}
+@media print{.callbar,.nav,.burger,.mobile,.promo,.lb{display:none !important}body::before{display:none}}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Czy na badanie wzroku trzeba się umówić?","acceptedAnswer":{"@type":"Answer","text":"Tak — najprościej zadzwonić pod numer 32 767 44 62 i ustalić termin. Na sam dobór oprawek i przymiarkę można przyjść bez umówienia, w godzinach otwarcia salonu."}},
+    {"@type":"Question","name":"Ile trwa wykonanie okularów?","acceptedAnswer":{"@type":"Answer","text":"Okulary powstają w naszej własnej pracowni, bez wysyłki do zewnętrznych zakładów — dlatego realizacja jest szybsza niż przy zamówieniu „na zewnątrz”. Dokładny termin podajemy przy zamówieniu, bo zależy od rodzaju szkieł."}},
+    {"@type":"Question","name":"Jakie szkła sprawdzą się do pracy przy komputerze?","acceptedAnswer":{"@type":"Answer","text":"Do pracy przy ekranie proponujemy szkła z filtrem światła niebieskiego, a przy dalekowzroczności starczej — konstrukcje biurowe lub progresywne Varilux. Dobieramy je po rozmowie o tym, jak wygląda Twój dzień pracy."}}
+  ]
+}
+</script>
+<script>document.documentElement.classList.remove('no-js')</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Optician",
+  "name": "Binokl — Zakład optyczny",
+  "alternateName": "Optyk Binokl",
+  "description": "Salon optyczny w Piekarach Śląskich od 1993 roku. Badanie wzroku, indywidualny dobór opraw, własna pracownia szlifierska.",
+  "url": "https://www.binokl.com.pl/",
+  "telephone": "+48327674462",
+  "email": "optyk@binokl.com.pl",
+  "image": "https://www.binokl.com.pl/assets/img/og-image.jpg",
+  "priceRange": "$$",
+  "founder": { "@type": "Person", "name": "Katarzyna Mamys-Wróbel", "jobTitle": "Optyk dyplomowany" },
+  "foundingDate": "1993-07",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Wyszyńskiego 5a",
+    "postalCode": "41-940",
+    "addressLocality": "Piekary Śląskie",
+    "addressCountry": "PL"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "13:00" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "3", "bestRating": "5" },
+  "sameAs": ["https://www.facebook.com/binokl.zakladoptyczny/"],
+  "areaServed": ["Piekary Śląskie", "Bytom", "Tarnowskie Góry", "Radzionków"]
+}
+</script>
 </head>
-
 <body>
-  <a class="skip-link" href="#tresc">Przejdź do treści</a>
+<a class="skip" href="#top">Przejdź do treści</a>
 
-  <header class="nav" id="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="index.html" aria-label="Binokl — strona główna">
-        <img class="brand-logo" src="assets/img/logo.png" alt="" width="632" height="395" />
-        <span><span class="brand-name">Binokl</span><span class="brand-sub">Zakład optyczny</span></span>
-      </a>
-
-      <nav aria-label="Nawigacja główna">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="o-nas.html">O nas</a></li>
-          <li><a href="badanie-wzroku.html">Usługi</a></li>
-          <li><a href="oferta.html">Oferta</a></li>
-          <li><a href="opinie.html">Opinie</a></li>
-          <li><a href="galeria.html">Galeria</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-right">
-        <a class="btn btn-accent nav-cta" href="kontakt.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg> Zarezerwuj wizytę</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
-          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="assets/img/logo-klientka.png" alt="Optyk Binokl"><span>Optyk Binokl</span></a>
+    <ul class="links">
+      <li><a href="#o-nas">O nas</a></li><li><a href="#uslugi">Usługi</a></li><li><a href="#badanie">Badanie wzroku</a></li>
+      <li><a href="#aktualnosci">Aktualności</a></li><li><a href="#opinie">Opinie</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#faq">FAQ</a></li><li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <div class="nav-act">
+      <a class="fb" href="https://www.facebook.com/profile.php?id=61566084901556" target="_blank" rel="noopener" aria-label="Optyk Binokl na Facebooku" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9H16l.5-4h-3V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+      <a class="btn solid" href="#kontakt">Umów wizytę</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile">MENU</button>
     </div>
+  </div>
+  <nav class="mobile" id="mobile"><ul>
+    <li><a href="#o-nas">O nas</a></li><li><a href="#uslugi">Usługi</a></li><li><a href="#badanie">Badanie wzroku</a></li>
+    <li><a href="#aktualnosci">Aktualności</a></li><li><a href="#opinie">Opinie</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#faq">FAQ</a></li><li><a href="#kontakt">Kontakt</a></li>
+  </ul></nav>
+</header>
 
-    <div class="nav-mobile" id="navMobile">
-      <ul>
-        <li><a href="o-nas.html">O nas</a></li>
-        <li><a href="badanie-wzroku.html">Usługi</a></li>
-        <li><a href="oferta.html">Oferta</a></li>
-        <li><a href="opinie.html">Opinie</a></li>
-        <li><a href="galeria.html">Galeria</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-        <li class="cta"><a class="btn btn-accent" href="kontakt.html">Zarezerwuj wizytę</a></li>
-      </ul>
+<main id="top">
+<section class="hero">
+  <img class="bg" src="assets/img/heropage-blur.jpg" alt="Mural Optyk Binokl na ścianie kamienicy">
+  <div class="hero-card">
+    <p class="year">Rok założenia 1993 · Piekary Śląskie</p>
+    <h1>Optyk Binokl<span>Zakład optyczny z tradycją</span></h1>
+    <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="13" r="4.5"/><circle cx="17" cy="13" r="4.5"/><path d="M11.5 13h1M2.5 13c0-3 1-5 2.5-6M21.5 13c0-3-1-5-2.5-6"/></svg></div>
+    <p class="motto">„Wyraźna wizja przez piękne okulary to nie przywilej, lecz standard, który od ponad 30 lat jest moją misją.”</p>
+    <div class="persons">
+      <div><small>Optyk dyplomowany</small><b>Katarzyna Mamys-Wróbel</b></div>
+      <div><small>Okulista</small><b>dr n. med. Wojciech Myga</b></div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main id="tresc">
-
-    <section class="hero">
-      <div class="hero-img">
-        <picture>
-          <source type="image/webp" media="(max-width: 700px)" srcset="assets/img/hero-salon-1100.webp" />
-          <source type="image/webp" srcset="assets/img/hero-salon-1800.webp" />
-          <source media="(max-width: 700px)" srcset="assets/img/hero-salon-1100.jpg" />
-          <img src="assets/img/hero-salon-1800.jpg" alt="Ekspozycja oprawek okularowych na ceglanej ścianie w salonie optycznym Binokl" width="1800" height="1125" fetchpriority="high" decoding="async" />
-        </picture>
-      </div>
-      <h1 class="hero-motto fade-in">
-        <span class="m1">Wyraźna wizja przez piękne okulary to nie przywilej,</span>
-        <span class="m2">lecz standard, który od ponad 30 lat jest moją misją.</span>
-      </h1>
-      <a class="hero-scroll" href="#dzialy" aria-label="Przewiń w dół">
-        <span>Przewiń</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-      </a>
-    </section>
-
-    <nav class="pillars" id="dzialy" aria-label="Główne działy">
-      <a class="pillar pillar--graphite reveal" href="o-nas.html">
-        <h2>O nas</h2>
-        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </a>
-      <a class="pillar pillar--accent reveal" href="badanie-wzroku.html">
-        <h2>Badanie wzroku</h2>
-        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </a>
-      <a class="pillar pillar--stone reveal" href="kontakt.html">
-        <h2>Kontakt</h2>
-        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </a>
-    </nav>
-
-    <section class="strip" aria-label="Godziny otwarcia i dane kontaktowe">
-      <div class="wrap strip-inner">
-        <div class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          <div>
-            <p class="t1">Otwarte</p>
-            <p class="t2">Pon–Pt 10:00–17:00<br>Sobota 10:00–13:00</p>
-          </div>
-        </div>
-        <div class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <div>
-            <p class="t1">Telefon</p>
-            <p class="t2"><a href="tel:+48327674462">32 767 44 62</a></p>
-          </div>
-        </div>
-        <div class="strip-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <div>
-            <p class="t1">Adres</p>
-            <p class="t2"><a href="https://maps.google.com/?q=Wyszy%C5%84skiego+5a+Piekary+%C5%9Al%C4%85skie" target="_blank" rel="noopener noreferrer">Wyszyńskiego 5a<br>Piekary Śląskie</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <div class="footer-grid">
-        <div>
-          <a class="brand" href="index.html">
-            <svg class="brand-logo" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true">
-          <circle cx="13" cy="27" r="9"/><circle cx="35" cy="27" r="9"/><path d="M22 25.5c1.2-1.2 2.8-1.2 4 0"/><path d="M4 27c-1.2-3 0-9 4-10.5"/><path d="M44 27c1.2-3 0-9-4-10.5"/><circle cx="13" cy="27" r="3.4" fill="currentColor" stroke="none"/><circle cx="35" cy="27" r="3.4" fill="currentColor" stroke="none"/>
-        </svg>
-            <span><span class="brand-name">Binokl</span><span class="brand-sub">Zakład optyczny</span></span>
-          </a>
-          <p class="footer-about">Kameralny salon optyczny w Piekarach Śląskich. Badanie wzroku i indywidualny dobór oprawek — od 30 lat w tym samym miejscu.</p>
-        </div>
-        <nav>
-          <h4>Nawigacja</h4>
-          <ul>
-            <li><a href="o-nas.html">O nas</a></li>
-            <li><a href="badanie-wzroku.html">Usługi</a></li>
-            <li><a href="oferta.html">Oferta</a></li>
-            <li><a href="opinie.html">Opinie</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-          </ul>
-        </nav>
-        <div>
-          <h4>Kontakt</h4>
-          <ul class="footer-contact">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Wyszyńskiego 5a, Piekary Śląskie</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+48327674462">32 767 44 62</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:optyk@binokl.com.pl">optyk@binokl.com.pl</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> Binokl — Salon Optyczny. Wszelkie prawa zastrzeżone.</p>
-        <nav><a href="polityka-prywatnosci.html">Polityka prywatności</a></nav>
-      </div>
+<section id="o-nas"><div class="wrap about">
+  <figure class="photo-vintage reveal">
+    <div class="pic"><img src="assets/img/ph-salon.jpg" alt="Wnętrze salonu Binokl"></div>
+    <figcaption>Salon przy Wyszyńskiego 5a — od 1993 r. w tym samym miejscu</figcaption>
+  </figure>
+  <div class="reveal">
+    <p class="label">O nas</p>
+    <h2>Trzydzieści lat dobrego widzenia</h2>
+    <div class="rule" style="justify-content:flex-start"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.5 7.5H22l-6 4.5 2.3 7.5L12 17l-6.3 4.5L8 14 2 9.5h7.5z"/></svg></div>
+    <p>Zakład optyczny Binokl rozpoczął działalność w lipcu 1993 roku. Od ponad 30 lat z ogromną przyjemnością pomagam klientom w wyborze okularów dopasowanych do ich potrzeb, uwzględniając komfort widzenia i estetykę.</p>
+    <p>W 1998 roku ukończyłam studium optyczne i uzyskałam dyplom optyka-technika. Posiadam nowoczesny sprzęt szlifierski — dzięki temu mam pełną kontrolę na każdym etapie wykonania okularów.</p>
+    <div class="stamps">
+      <div class="stamp"><div><b>1993</b><small>rok założenia</small></div></div>
+      <div class="stamp"><div><b>30+</b><small>lat praktyki</small></div></div>
+      <div class="stamp"><div><b>5,0</b><small>ocena Google</small></div></div>
     </div>
-  </footer>
+  </div>
+</div></section>
 
-  <script src="js/main.js" defer></script>
-  <!-- dev: przełącznik palet — podgląd wariantów kolorów -->
-  <script src="js/palette-data.js" defer></script>
-  <script src="js/palette-dev.js" defer></script>
+<section class="alt" id="uslugi"><div class="wrap">
+  <div class="center reveal">
+    <p class="eyebrow">Co to oznacza dla Ciebie</p>
+    <h2>Okulary wykonane z najwyższą starannością</h2>
+    <div class="rule"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l3 6 6 3-6 3-3 6-3-6-6-3 6-3z"/></svg></div>
+  </div>
+  <div class="cards">
+    <article class="card lift reveal"><span class="no">I.</span><h3>Precyzja wykonania</h3><p>Własna pracownia i sprzęt szlifierski — okulary powstają na miejscu, pod moim okiem, od pierwszego pomiaru do ostatniej regulacji.</p></article>
+    <article class="card lift reveal"><span class="no">II.</span><h3>Indywidualne dopasowanie</h3><p>Nawet w najbardziej wymagających oprawach i przy skomplikowanych wadach wzroku. </p></article>
+    <article class="card lift reveal"><span class="no">III.</span><h3>Szybka realizacja</h3><p>Bez pośredników i wysyłki do zewnętrznych pracowni.</p></article>
+  </div>
+</div></section>
+
+<section id="badanie"><div class="wrap doctor">
+  <div class="ph reveal"><img src="assets/img/ph-gabinet.jpg" alt="Gabinet okulistyczny"></div>
+  <div class="frame reveal">
+    <p class="eyebrow">Badanie wzroku</p>
+    <h3>Gabinet okulistyczny dr. n. med. Wojciecha Mygi</h3>
+    <p>Aby zapewnić Państwu kompleksową opiekę nad wzrokiem, od 2000 roku swoją praktykę okulistyczną prowadzi u nas dr Wojciech Myga, który zajmuje się profesjonalną diagnostyką i leczeniem schorzeń oczu, w tym:</p>
+    <ul style="list-style:none;margin:1rem 0 1.4rem">
+      <li>— jaskry,</li><li>— zaćmy,</li><li>— chorób siatkówki.</li>
+    </ul>
+    <a class="btn solid" href="#kontakt">Zapisz się na badanie</a>
+  </div>
+</div></section>
+
+<section class="essilor" id="essilor">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="box reveal">
+      <p class="eyebrow">Szkła korekcyjne</p>
+      <h2>Partner od pierwszego dnia</h2>
+      <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="13" r="4.5"/><circle cx="17" cy="13" r="4.5"/><path d="M11.5 13h1M2.5 13c0-3 1-5 2.5-6M21.5 13c0-3-1-5-2.5-6"/></svg></div>
+      <p>Od początku działalności współpracuję z firmą <a class="brandlink" href="https://www.essilor.com/pl-pl/" target="_blank" rel="noopener">Essilor</a> — liderem branży optycznej i producentem zaawansowanych technologicznie szkieł korekcyjnych, w tym progresywnych soczewek Varilux.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UWAGA: treść aktualności to przykład — klientka podmienia zdjęcia, daty, tytuły i opisy. -->
+<section class="alt" id="aktualnosci"><div class="wrap">
+  <div class="center reveal"><p class="eyebrow">Aktualności</p><h2>Co nowego w salonie</h2>
+  <div class="rule"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l3 6 6 3-6 3-3 6-3-6-6-3 6-3z"/></svg></div></div>
+  <div class="news">
+    <article class="news-item reveal">
+      <div class="ph"><img src="assets/img/news-przeciwsloneczne.jpg" alt="Okulary przeciwsłoneczne w salonie Binokl" loading="lazy" decoding="async"></div>
+      <div class="txt"><time datetime="2026-09">Wrzesień 2026</time><h3>Nowe oprawy przeciwsłoneczne</h3><p>Na ścianie w salonie pojawiły się nowe modele — z pełną ochroną UV i możliwością wstawienia szkieł korekcyjnych.</p></div>
+    </article>
+    <article class="news-item reveal">
+      <div class="ph"><img src="assets/img/news-varilux.jpg" alt="Oprawa korekcyjna — szkła progresywne Varilux" loading="lazy" decoding="async"></div>
+      <div class="txt"><time datetime="2026-09">Wrzesień 2026</time><h3>Varilux XR series</h3><p>Najnowsza generacja szkieł progresywnych Essilor — płynne widzenie na każdą odległość. Zapytaj o dobór podczas wizyty.</p></div>
+    </article>
+    <article class="news-item reveal">
+      <div class="ph"><img src="assets/img/news-badanie.jpg" alt="Gabinet okulistyczny — badanie wzroku" loading="lazy" decoding="async"></div>
+      <div class="txt"><time datetime="2026-09">Wrzesień 2026</time><h3>Zapisy na badanie wzroku</h3><p>Wolne terminy u dr. n. med. Wojciecha Mygi — zadzwoń pod 32 767 44 62 i umów dogodną godzinę.</p></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="opinie"><div class="wrap">
+  <div class="center reveal"><p class="eyebrow">Opinie klientów</p><h2>Ocena 5 na 5 w Google</h2></div>
+  <div class="quotes">
+    <div class="quote lift reveal"><span class="stars">★★★★★</span><p>Najlepszy optyk, do jakiego trafiłam. Pani idealnie dobrała oprawki, tłumacząc, na co dokładnie zwrócić uwagę przy danej wadzie. Jestem zachwycona i polecam z całego serca!</p><b>Aleksandra K.</b></div>
+    <div class="quote lift reveal"><span class="stars">★★★★★</span><p>Świetny optyk, w którym nie tylko znajdziesz ciekawe oprawki, ale dowiesz się bardzo dużo na temat doboru odpowiednich szkieł. Chyba nigdzie nie traktują tak fajnie klienta jak tutaj!</p><b>Bartek K.</b></div>
+    <div class="quote lift reveal"><span class="stars">★★★★★</span><p>Za każdym razem jesteśmy bardzo zadowoleni z doboru oprawek jak i szkieł. Fachowa pomoc nie tylko przy zakupie, ale również podczas awarii.</p><b>Agata A.</b></div>
+  </div>
+</div></section>
+
+<section id="galeria" style="padding-top:0"><div class="wrap">
+  <div class="center reveal"><p class="eyebrow">Galeria</p><h2>Zajrzyj do środka</h2></div>
+  <div class="gal">
+    <button class="wide tall" aria-label="Powiększ zdjęcie 1"><img src="galeria/karuzela/image7.jpeg" alt="Zdjęcie z salonu Binokl" loading="lazy" decoding="async"></button>
+    <button aria-label="Powiększ zdjęcie 2"><img src="galeria/galeria/image21.jpeg" alt="Zdjęcie z salonu Binokl" loading="lazy" decoding="async"></button>
+    <button class="tall" aria-label="Powiększ zdjęcie 3"><img src="galeria/karuzela/image11.jpeg" alt="Zdjęcie z salonu Binokl" loading="lazy" decoding="async"></button>
+    <button aria-label="Powiększ zdjęcie 4"><img src="galeria/galeria/image28.jpeg" alt="Zdjęcie z salonu Binokl" loading="lazy" decoding="async"></button>
+    <button aria-label="Powiększ zdjęcie 5"><img src="galeria/galeria/image22.jpeg" alt="Zdjęcie z salonu Binokl" loading="lazy" decoding="async"></button>
+    <button aria-label="Powiększ zdjęcie 6"><img src="galeria/karuzela/image10.jpeg" alt="Zdjęcie z salonu Binokl" loading="lazy" decoding="async"></button>
+    <button class="wide" aria-label="Powiększ zdjęcie 7"><img src="assets/img/ph-wnetrze-web.jpg" alt="Zdjęcie z salonu Binokl" loading="lazy" decoding="async"></button>
+  </div>
+</div></section>
+
+<dialog class="lb" id="lb" aria-label="Powiększone zdjęcie">
+  <img id="lb-img" src="" alt="">
+  <button class="prev" id="lb-prev" aria-label="Poprzednie zdjęcie">‹</button>
+  <button class="next" id="lb-next" aria-label="Następne zdjęcie">›</button>
+  <button class="close" id="lb-close" aria-label="Zamknij">✕</button>
+</dialog>
+
+<!-- UWAGA: treść sekcji FAQ jest propozycją redakcyjną — do potwierdzenia z klientką przed publikacją. -->
+<section class="alt" id="faq"><div class="wrap">
+  <div class="center reveal"><p class="eyebrow">Częste pytania</p><h2>Dobrze wiedzieć przed wizytą</h2></div>
+  <div class="faq reveal">
+    <details open><summary>Czy na badanie wzroku trzeba się umówić?</summary><p>Tak — najprościej zadzwonić pod numer 32 767 44 62 i ustalić termin. Na sam dobór oprawek i przymiarkę można przyjść bez umówienia, w godzinach otwarcia salonu.</p></details>
+    <details><summary>Ile trwa wykonanie okularów?</summary><p>Okulary powstają w naszej własnej pracowni, bez wysyłki do zewnętrznych zakładów — dlatego realizacja jest szybsza niż przy zamówieniu „na zewnątrz”. Dokładny termin podajemy przy zamówieniu, bo zależy od rodzaju szkieł.</p></details>
+    <details><summary>Jakie szkła sprawdzą się do pracy przy komputerze?</summary><p>Do pracy przy ekranie proponujemy szkła z filtrem światła niebieskiego, a przy dalekowzroczności starczej — konstrukcje biurowe lub progresywne Varilux. Dobieramy je po rozmowie o tym, jak wygląda Twój dzień pracy.</p></details>
+  </div>
+</div></section>
+
+<section class="contact" id="kontakt"><div class="wrap">
+  <div class="center reveal"><p class="eyebrow">Kontakt</p><h2>Zapraszamy do salonu</h2><p class="lead">Umów badanie wzroku albo po prostu wpadnij obejrzeć nowe oprawki. Przymiarka nic nie kosztuje.</p></div>
+  <div class="islands">
+    <div class="island lift reveal">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <h3>Adres</h3><p class="big">Wyszyńskiego 5a</p><p>41-940 Piekary Śląskie</p>
+      <a class="more" href="https://maps.google.com/?q=Wyszy%C5%84skiego+5a+Piekary+%C5%9Al%C4%85skie" target="_blank" rel="noopener">Wyznacz trasę</a>
+    </div>
+    <div class="island lift reveal">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5.11 3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+      <h3>Telefon</h3><a class="big" href="tel:+48327674462">32 767 44 62</a><p>Zapisy na badanie wzroku</p>
+      <a class="more" href="tel:+48327674462">Zadzwoń</a>
+    </div>
+    <div class="island lift reveal">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+      <h3>E-mail</h3><a class="big" href="mailto:optyk@binokl.com.pl">optyk@binokl.com.pl</a><p>Odpowiadamy w dni robocze</p>
+      <a class="more" href="mailto:optyk@binokl.com.pl?subject=Umówienie%20wizyty">Napisz do nas</a>
+    </div>
+    <div class="island lift reveal">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <h3>Godziny otwarcia</h3>
+      <p class="hrs">Pn – Pt: <b>10:00 – 17:00</b><br>Sobota: <b>10:00 – 13:00</b><br>Niedziela: zamknięte</p>
+    </div>
+  </div>
+  <div class="contact-grid">
+    <div class="ph reveal"><img src="assets/img/szyld.png" alt="Szyld Optyk Binokl — optyk dyplomowany Katarzyna Mamys-Wróbel, okulista dr n. med. Wojciech Myga, rok założenia 1993" loading="lazy" decoding="async"></div>
+    <div class="ph map reveal"><iframe title="Mapa dojazdu — Wyszyńskiego 5a, Piekary Śląskie" src="https://maps.google.com/maps?q=Wyszy%C5%84skiego%205a%20Piekary%20%C5%9Al%C4%85skie&z=16&output=embed" loading="lazy"></iframe></div>
+  </div>
+</div></section>
+</main>
+
+<footer>
+  <img src="assets/img/logo-klientka.png" alt="">
+  <p class="name">Binokl · Zakład optyczny · Mamys-Wróbel K.</p>
+  <p>© 2026 · Wyszyńskiego 5a, Piekary Śląskie · <a href="mailto:optyk@binokl.com.pl">optyk@binokl.com.pl</a> · <a href="https://www.facebook.com/binokl.zakladoptyczny/" target="_blank" rel="noopener">Facebook</a></p>
+</footer>
+
+<!-- popup promocji — treść wpisuje się w pliku promocja.js -->
+<aside class="promo" id="promo" role="status" hidden>
+  <button class="x" id="promo-x" aria-label="Zamknij promocję">✕</button>
+  <span class="eyebrow">Promocja</span>
+  <p id="promo-txt"></p>
+</aside>
+
+<nav class="callbar" aria-label="Szybki kontakt">
+  <a href="tel:+48327674462"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5.11 3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L9.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Zadzwoń</a>
+  <a href="mailto:optyk@binokl.com.pl?subject=Umówienie%20wizyty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>Napisz</a>
+  <a href="https://maps.google.com/?q=Wyszy%C5%84skiego+5a+Piekary+%C5%9Al%C4%85skie" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Dojazd</a>
+</nav>
+
+<script src="js/promocja.js"></script>
+<script>
+// menu mobilne
+const b=document.getElementById('burger'),m=document.getElementById('mobile');
+b.onclick=()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
+m.querySelectorAll('a').forEach(a=>a.onclick=()=>{m.classList.remove('open');b.setAttribute('aria-expanded',false)});
+
+// animacje wejścia
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// galeria — powiększenie na cały ekran
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+const shots=[...document.querySelectorAll('.gal button')];
+let cur=0;
+function setImg(){const img=shots[cur].querySelector('img');lbImg.src=img.src;lbImg.alt=img.alt}
+let fadeT;
+function show(i){ // zmiana zdjęcia strzałką — stare gaśnie, nowe się pojawia
+  cur=(i+shots.length)%shots.length;
+  clearTimeout(fadeT);lbImg.style.opacity=0;
+  fadeT=setTimeout(()=>{setImg();if(lbImg.complete)lbImg.style.opacity=1},250);
+}
+lbImg.onload=()=>{lbImg.style.opacity=1};
+shots.forEach((s,i)=>s.onclick=()=>{cur=i;setImg();lbImg.style.opacity=1;lb.showModal()});
+document.getElementById('lb-close').onclick=()=>lb.close();
+document.getElementById('lb-prev').onclick=()=>show(cur-1);
+document.getElementById('lb-next').onclick=()=>show(cur+1);
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+lb.addEventListener('close',()=>shots[cur].focus());
+
+// promocja z pliku promocja.js — pokazuje się tylko, gdy tekst nie jest pusty
+(function(){
+  const txt=(typeof promocja==='string'?promocja:'').trim();
+  if(!txt)return;
+  const key='binokl-promo-zamknieta';
+  try{if(sessionStorage.getItem(key)===txt)return}catch(e){}
+  const box=document.getElementById('promo');
+  document.getElementById('promo-txt').textContent=txt;
+  box.hidden=false;
+  setTimeout(()=>box.classList.add('show'),1200);
+  document.getElementById('promo-x').onclick=()=>{
+    box.classList.remove('show');
+    setTimeout(()=>box.hidden=true,500);
+    try{sessionStorage.setItem(key,txt)}catch(e){}
+  };
+})();
+</script>
 </body>
 </html>
